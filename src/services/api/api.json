@@ -1,0 +1,124 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ai Assistant",
+    "description": "Ai Assistant API description",
+    "contact": {},
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "/"
+    },
+    {
+      "url": ""
+    }
+  ],
+  "paths": {
+    "/api/auth/create-otp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "createOtp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOtpDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/auth/check-otp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "checkOtp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckOtpDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ai/create-chat": {
+      "post": {
+        "tags": [
+          "Ai"
+        ],
+        "operationId": "createChat",
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/ai/chat": {
+      "post": {
+        "tags": [
+          "Ai"
+        ],
+        "operationId": "chat",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateOtpDto": {
+        "type": "object"
+      },
+      "CheckOtpDto": {
+        "type": "object"
+      },
+      "ChatDto": {
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "access-token": {
+        "type": "http",
+        "description": "Please enter token in following format: Bearer <JWT>",
+        "name": "Authorization",
+        "in": "header",
+        "scheme": "Bearer",
+        "bearerFormat": "Bearer"
+      }
+    }
+  }
+}
