@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": ["next-auth"],
     "plugins": [
       {
         "name": "next"
