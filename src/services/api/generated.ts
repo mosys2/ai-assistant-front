@@ -24,7 +24,7 @@ export class ApiClient {
 
     }
 
-    createOtp(body: CreateOtpDto, cancelToken?: CancelToken | undefined): Promise<void> {
+    createOtp(body: CreateOtpDto, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
         let url_ = this.baseUrl + "/api/auth/create-otp";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -36,6 +36,7 @@ export class ApiClient {
             url: url_,
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -51,7 +52,7 @@ export class ApiClient {
         });
     }
 
-    protected processCreateOtp(response: AxiosResponse): Promise<void> {
+    protected processCreateOtp(response: AxiosResponse): Promise<ResultDto> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -61,18 +62,17 @@ export class ApiClient {
                 }
             }
         }
-        if (status === 201) {
+        {
             const _responseText = response.data;
-            return Promise.resolve<void>(null as any);
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
 
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(null as any);
     }
 
-    checkOtp(body: CheckOtpDto, cancelToken?: CancelToken | undefined): Promise<void> {
+    checkOtp(body: CheckOtpDto, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
         let url_ = this.baseUrl + "/api/auth/check-otp";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -84,6 +84,7 @@ export class ApiClient {
             url: url_,
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -99,7 +100,7 @@ export class ApiClient {
         });
     }
 
-    protected processCheckOtp(response: AxiosResponse): Promise<void> {
+    protected processCheckOtp(response: AxiosResponse): Promise<ResultDto> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -109,18 +110,17 @@ export class ApiClient {
                 }
             }
         }
-        if (status === 201) {
+        {
             const _responseText = response.data;
-            return Promise.resolve<void>(null as any);
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
 
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(null as any);
     }
 
-    createChat( cancelToken?: CancelToken | undefined): Promise<void> {
+    createChat( cancelToken?: CancelToken | undefined): Promise<ResultDto> {
         let url_ = this.baseUrl + "/api/ai/create-chat";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -128,6 +128,7 @@ export class ApiClient {
             method: "POST",
             url: url_,
             headers: {
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -143,7 +144,7 @@ export class ApiClient {
         });
     }
 
-    protected processCreateChat(response: AxiosResponse): Promise<void> {
+    protected processCreateChat(response: AxiosResponse): Promise<ResultDto> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -153,18 +154,17 @@ export class ApiClient {
                 }
             }
         }
-        if (status === 201) {
+        {
             const _responseText = response.data;
-            return Promise.resolve<void>(null as any);
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
 
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(null as any);
     }
 
-    chat(body: ChatDto, cancelToken?: CancelToken | undefined): Promise<void> {
+    chat(body: ChatDto, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
         let url_ = this.baseUrl + "/api/ai/chat";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -176,6 +176,7 @@ export class ApiClient {
             url: url_,
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             cancelToken
         };
@@ -191,7 +192,7 @@ export class ApiClient {
         });
     }
 
-    protected processChat(response: AxiosResponse): Promise<void> {
+    protected processChat(response: AxiosResponse): Promise<ResultDto> {
         const status = response.status;
         let _headers: any = {};
         if (response.headers && typeof response.headers === "object") {
@@ -201,19 +202,23 @@ export class ApiClient {
                 }
             }
         }
-        if (status === 201) {
+        {
             const _responseText = response.data;
-            return Promise.resolve<void>(null as any);
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
 
-        } else if (status !== 200 && status !== 204) {
-            const _responseText = response.data;
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
         }
-        return Promise.resolve<void>(null as any);
     }
 }
 
 export interface CreateOtpDto {
+
+    [key: string]: any;
+}
+
+export interface ResultDto {
 
     [key: string]: any;
 }

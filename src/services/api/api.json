@@ -32,8 +32,15 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": ""
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
           }
         }
       }
@@ -55,8 +62,15 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": ""
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
           }
         }
       }
@@ -68,8 +82,15 @@
         ],
         "operationId": "createChat",
         "responses": {
-          "201": {
-            "description": ""
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
           }
         }
       }
@@ -91,8 +112,15 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": ""
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
           }
         }
       }
@@ -101,6 +129,9 @@
   "components": {
     "schemas": {
       "CreateOtpDto": {
+        "type": "object"
+      },
+      "ResultDto": {
         "type": "object"
       },
       "CheckOtpDto": {
