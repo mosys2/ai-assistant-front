@@ -211,6 +211,106 @@ export class ApiClient {
 
         }
     }
+
+    createPayment(body: CreatePaymentDto, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
+        let url_ = this.baseUrl + "/api/payment/create-payment";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(body);
+
+        let options_: AxiosRequestConfig = {
+            data: content_,
+            method: "POST",
+            url: url_,
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processCreatePayment(_response);
+        });
+    }
+
+    protected processCreatePayment(response: AxiosResponse): Promise<ResultDto> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        {
+            const _responseText = response.data;
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
+
+        }
+    }
+
+    verifyPayment(authority: string, status: string, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
+        let url_ = this.baseUrl + "/api/payment/verify-payment?";
+        if (authority === undefined || authority === null)
+            throw new Error("The parameter 'authority' must be defined and cannot be null.");
+        else
+            url_ += "authority=" + encodeURIComponent("" + authority) + "&";
+        if (status === undefined || status === null)
+            throw new Error("The parameter 'status' must be defined and cannot be null.");
+        else
+            url_ += "status=" + encodeURIComponent("" + status) + "&";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_: AxiosRequestConfig = {
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processVerifyPayment(_response);
+        });
+    }
+
+    protected processVerifyPayment(response: AxiosResponse): Promise<ResultDto> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        {
+            const _responseText = response.data;
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<ResultDto>(resultdefault);
+
+        }
+    }
 }
 
 export interface CreateOtpDto {
@@ -229,6 +329,12 @@ export interface CheckOtpDto {
 }
 
 export interface ChatDto {
+
+    [key: string]: any;
+}
+
+export interface CreatePaymentDto {
+    packageId: string;
 
     [key: string]: any;
 }

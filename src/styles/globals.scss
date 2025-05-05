@@ -32,6 +32,8 @@ body {
   overflow-x: hidden;
   font-family: "Vazirmatn", sans-serif;
   font-optical-sizing: auto;
+  background-color: #3347fc;
+
 }
 
 p {
@@ -55,4 +57,10 @@ h1 {
 
 a {
   font-family: "Vazirmatn", sans-serif;
+}
+
+.bgai{
+  // background-image: url('../assets/images/bg.png');
+  background-color: #3347fc;
+
 }

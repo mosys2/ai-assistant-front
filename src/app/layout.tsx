@@ -1,5 +1,8 @@
 import { Metadata } from "next";
 import "../styles/globals.scss";
+import AuthProvider from "./auth/AuthProvider";
+import { Provider } from "react-redux";
+import { RTProvider } from "./block/RTProvider";
 
 // Metadata setup for the application
 export const metadata: Metadata = {
@@ -29,7 +32,11 @@ export default function RootLayout({
         <meta name="description" content="" />
         <meta name="keywords" content="" />
       </head>
-      <body>{children}</body>
+      <body className="bgai">
+      <AuthProvider>
+            <RTProvider>{children}</RTProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

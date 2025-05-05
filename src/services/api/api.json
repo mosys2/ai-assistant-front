@@ -124,6 +124,74 @@
           }
         }
       }
+    },
+    "/api/payment/create-payment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "operationId": "createPayment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payment/verify-payment": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "operationId": "verifyPayment",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -139,6 +207,17 @@
       },
       "ChatDto": {
         "type": "object"
+      },
+      "CreatePaymentDto": {
+        "type": "object",
+        "required": [
+          "packageId"
+        ],
+        "properties": {
+          "packageId": {
+            "type": "string"
+          }
+        }
       }
     },
     "securitySchemes": {
