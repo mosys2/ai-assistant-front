@@ -7,13 +7,18 @@ import { RTProvider } from "./block/RTProvider";
 // Metadata setup for the application
 export const metadata: Metadata = {
   icons: "favicon.ico",
-  applicationName: "ai assistant",
+  applicationName: "EasyWaySEO",
+  openGraph: {
+    siteName: "EasyWaySEO",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
       <head>
+      <title>49565194</title>
+
         <link rel="icon" href="" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="" />
         {/* Meta Tags */}
@@ -24,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
 
-        <meta name="title" content="" />
+        <meta name="title" content="49565194" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
       </head>
