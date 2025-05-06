@@ -1,6 +1,6 @@
 // app/page.tsx
 
-import EnamadSeal from "@/components/EnamadSeal";
+import EnamadSeal from "@/components/ui/Enamad";
 
 export default function HomePage() {
   return (
