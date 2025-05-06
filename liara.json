@@ -2,7 +2,7 @@
   "app": "hooshiva",
   "port": 3000,
   "build": {
-    "location": "iran"
+    "location": "germany"
   },
   "disks": []
 }
