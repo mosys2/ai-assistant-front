@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="description" content="" />
         <meta name="keywords" content="" />
       </head>
-      <body className="bgai">
+      <body>
       <AuthProvider>
             <RTProvider>{children}</RTProvider>
         </AuthProvider>

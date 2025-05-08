@@ -125,6 +125,26 @@
         }
       }
     },
+    "/api/payment/packages": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "operationId": "getAllPackage",
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/payment/create-payment": {
       "post": {
         "tags": [

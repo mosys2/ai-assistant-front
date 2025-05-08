@@ -212,6 +212,50 @@ export class ApiClient {
         }
     }
 
+    getAllPackage( cancelToken?: CancelToken | undefined): Promise<any[]> {
+        let url_ = this.baseUrl + "/api/payment/packages";
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_: AxiosRequestConfig = {
+            method: "GET",
+            url: url_,
+            headers: {
+                "Accept": "application/json"
+            },
+            cancelToken
+        };
+
+        return this.instance.request(options_).catch((_error: any) => {
+            if (isAxiosError(_error) && _error.response) {
+                return _error.response;
+            } else {
+                throw _error;
+            }
+        }).then((_response: AxiosResponse) => {
+            return this.processGetAllPackage(_response);
+        });
+    }
+
+    protected processGetAllPackage(response: AxiosResponse): Promise<any[]> {
+        const status = response.status;
+        let _headers: any = {};
+        if (response.headers && typeof response.headers === "object") {
+            for (let k in response.headers) {
+                if (response.headers.hasOwnProperty(k)) {
+                    _headers[k] = response.headers[k];
+                }
+            }
+        }
+        {
+            const _responseText = response.data;
+            let resultdefault: any = null;
+            let resultDatadefault  = _responseText;
+            resultdefault = JSON.parse(resultDatadefault);
+            return Promise.resolve<any[]>(resultdefault);
+
+        }
+    }
+
     createPayment(body: CreatePaymentDto, cancelToken?: CancelToken | undefined): Promise<ResultDto> {
         let url_ = this.baseUrl + "/api/payment/create-payment";
         url_ = url_.replace(/[?&]$/, "");

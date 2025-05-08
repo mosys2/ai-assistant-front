@@ -1,5 +1,6 @@
 // app/page.tsx
 
+import Packages from "@/components/sections/package/page";
 import EnamadSeal from "@/components/ui/Enamad";
 
 export default function HomePage() {
@@ -14,9 +15,10 @@ export default function HomePage() {
       >
         برو به داشبورد
       </a>
-      
+      <Packages />
     </main>
-    <footer>
+    
+    <footer className="bg-[#3347fc] p-3">
     {/* Other footer content */}
     <EnamadSeal />
   </footer>
