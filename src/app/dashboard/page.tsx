@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { Layout, Menu, Input, Button, Form, Select } from 'antd';
 import { MessageOutlined, FormOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 
 const { Header, Sider, Content } = Layout;
 const { TextArea } = Input;
@@ -19,21 +21,19 @@ const categories = [
 ];
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<string>();
-  const [subItems, setSubItems] = useState<string[]>([]);
-  const [selectedSub, setSelectedSub] = useState<string>();
-  const [response, setResponse] = useState<string>('در اینجا پاسخ ظاهر می‌شود...');
-
-  const onCategoryHover = (label: string) => {
-    const cat = categories.find((c) => c.label === label);
-    if (cat) {
-      setSubItems(cat.children);
-    }
-  };
-
   return (
     <>
-    <div className=''>به داشبورد خوش امدید</div>
+    <div className='w-full flex justify-between p-1'>
+      <div className='w-1/2 text-lg'>به داشبورد خوش امدید</div>
+      <div className='w-1/2 flex justify-end'>
+      <button
+      onClick={() => signOut({ callbackUrl: "/auth" })}
+      className=" px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        خروج
+      </button>
+      </div>
+    </div>
     </>
   );
 }

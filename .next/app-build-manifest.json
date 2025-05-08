@@ -12,7 +12,7 @@
       "static/chunks/fd9d1056-59f79b8090ece91a.js",
       "static/chunks/117-770199a00c912526.js",
       "static/chunks/main-app-17a45b7d279146f4.js",
-      "static/css/5681145b8658922e.css",
+      "static/css/6c6a699be586284f.css",
       "static/chunks/464-30098ec9cd0b0e75.js",
       "static/chunks/605-29d0f55d2641008c.js",
       "static/chunks/623-bd10bd31a0f3edb0.js",
@@ -37,11 +37,12 @@
       "static/chunks/117-770199a00c912526.js",
       "static/chunks/main-app-17a45b7d279146f4.js",
       "static/chunks/177-83bf54916e1b3d21.js",
+      "static/chunks/605-29d0f55d2641008c.js",
       "static/chunks/107-b360604a9eadd1c1.js",
       "static/chunks/511-9a4c0b986aa97542.js",
       "static/chunks/676-82f73d9ea6f2ff3d.js",
       "static/chunks/371-3e741ec629bfd56a.js",
-      "static/chunks/app/dashboard/page-3dcc0c2363fda6f5.js"
+      "static/chunks/app/dashboard/page-b8015c58eacdf6b7.js"
     ],
     "/dashboard/payment/verify/page": [
       "static/chunks/webpack-72934ba693f7eb30.js",
