@@ -3,12 +3,11 @@
 @import "./colors";
 
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url('../assets/fonts/vazir/Vazirmatn[wght].woff2') format('woff2 supports variations'),
-       url('../assets/fonts/vazir/Vazirmatn[wght].woff2') format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "YekanBakh";
+  src: url("../assets/fonts/yekanbakh/woff/YekanBakhFaNum-Regular.woff")
+      format("woff supports variations"),
+    url("../assets/fonts/yekanbakh/woff2/YekanBakhFaNum-Regular.woff2")
+      format("woff2-variations");
 }
 
 @tailwind base;
@@ -16,30 +15,33 @@
 @tailwind utilities;
 
 :root {
-  --color1:#3347fc
-  --color2: linear-gradient(180deg, #9d4bef 0%, #3347fc 100%);
+  --color1: #040404;
+  --color2: #1a3d9b;
+  --color3: #1a3d9b;
+
+  --color-g-1: linear-gradient(180deg, #1a3d9b 0%, #2556da 100%);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "YekanBakh", sans-serif;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "YekanBakh", sans-serif;
   font-optical-sizing: auto;
-
+  color: var(--color1);
 }
 
 p {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "YekanBakh", sans-serif;
   font-size: 16px;
-  color: #646c8d;
+  color: var(--color1);
 }
 
 h1,
@@ -48,7 +50,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "YekanBakh", sans-serif;
 }
 h1 {
   font-size: 70px;
@@ -56,11 +58,152 @@ h1 {
 }
 
 a {
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "YekanBakh", sans-serif;
 }
 
-.bgai{
+.btn {
+  background: linear-gradient(90deg, #1a3d9b 0%, #2556da 100%);
+  color: #fff;
+  border-radius: 60px;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease !important;
+  display: flex!important;
+  direction: rtl;
+  align-items: center;
+  justify-content: center;
+  &:active,
+  &:hover,
+  &:target,
+  &:focus-within,
+  &:focus {
+    background: #1a3d9b !important;
+    color: #fff !important;
+  }
+}
+
+.bgai {
   // background-image: url('../assets/images/bg.png');
   background-color: #3347fc;
+}
 
+.humber-menu-btn {
+  background: var(--color3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-bg-gradient1);
+  }
+}
+
+/* components/SideMenu.module.css */
+.sidemenu {
+  position: fixed; /* Use fixed to overlay the menu */
+  z-index: 1000;
+  right: 0;
+  top: 0;
+  width: 75%; /* Width only applies when visible */
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); /* Start hidden */
+}
+
+.sidemenu.show {
+  transform: translateX(0); /* Slide in */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  visibility: hidden;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+.navbar {
+  .menu {
+    border-radius: 100px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+.menu-anchor {
+  .ant-anchor {
+    &::before {
+      display: none !important;
+    }
+    ul {
+      display: inline-flex;
+      align-items: center;
+      li {
+        .ant-anchor-link{
+          padding-inline:0px;
+          padding-right: 4px;
+
+        }
+        display: flex;
+        margin: 0 20px;
+        a {
+          color: var(--color1);
+          font-size: 18px;
+          font-weight: 400!important;
+          &:active,
+          &:hover,
+          &:target,
+          &:focus-within,
+          &:focus {
+            text-decoration: none;
+            background-image: var(--color3);
+            -webkit-background-clip: text;
+            color: var(--color1);
+            transition: all 0.3s ease;
+          }
+        }
+        .ant-anchor-link-title {
+          color: var(--color1);
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.menu-anchor-mobile {
+  .ant-anchor {
+    &::before {
+      display: none !important;
+    }
+    ul {
+      li {
+        display: flex;
+        align-items: center;
+                  margin-bottom: 20px;
+
+        .ant-anchor-link {
+          a {
+            color: #646c8d;
+            font-size: 17px;
+            font-family: 800;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import "../styles/globals.scss";
-import AuthProvider from "./auth/AuthProvider";
-import { Provider } from "react-redux";
-import { RTProvider } from "./block/RTProvider";
+import AuthProvider from "./(main)/(blocks)/AuthProvider";
+import { RTProvider } from "./(main)/(blocks)/RTProvider";
 
 // Metadata setup for the application
 export const metadata: Metadata = {
