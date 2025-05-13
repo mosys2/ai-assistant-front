@@ -254,3 +254,35 @@ a {
     }
   }
 }
+
+.home-footer {
+  background-color: #142f78;
+  background-image: url("../assets/images/FOOTER.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-blend-mode: color-burn;
+  .header-footer{
+    width: 112px;
+    height: 25px;
+    font-size: 14px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #142F78;
+    background-color: white;
+    border-radius: 30px;
+    &::after{
+      // content: url('../assets/images/line-footer.svg');
+      position: absolute;
+      left: 0;
+      z-index: 10;
+      color: #000;
+    }
+  }
+
+}
+
+  // .w-[112px] h-[25px] flex items-center justify-center text-center text-[] bg-white rounded-[30px]
+
