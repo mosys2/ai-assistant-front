@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import Home from "../(sections)/home/page";
+import Why from "../(sections)/why/page";
+import Packages from "../(sections)/packages/Packages";
 
 const Loading = () => (
   <div
@@ -75,6 +77,8 @@ const PageContext = () => {
           <Header />
           <main>
             <Home />
+            <Why />
+            <Packages />
           </main>
           <Footer />
         </>

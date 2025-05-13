@@ -3,8 +3,8 @@ import React, { Suspense } from 'react';
 import PageContext from './(blocks)/PageContext';
 
 export const metadata: Metadata = {
-    title: 'EasyWaySEO: SEO Coaching & DIY SEO Software',
-    description: 'EasyWaySEO: SEO Coaching & DIY SEO Software'
+    title: 'هوشیوا hooshiva',
+    description: 'hoshiva هوشیوا ساخت سند با هوش مصنوعی'
 };
 
 const Page = () => {

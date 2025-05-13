@@ -4,6 +4,11 @@ import { Card, Button, message } from "antd";
 import { useEffect, useState } from "react";
 import api from "@/services/api";
 import { useRouter } from "next/navigation";
+import priceIcon from "@/assets/images/price.svg";
+import planIcon from "@/assets/images/plan-icon.svg";
+import starPackageIcon from "@/assets/images/star-package.svg";
+
+import Image from "next/image";
 
 const Packages = () => {
   const router = useRouter();
@@ -13,6 +18,7 @@ const Packages = () => {
   const getPackage = async () => {
     try {
       const packages: any = await api.getAllPackage();
+      console.log(packages);
       if (packages?.data) {
         setPricingData(packages.data);
       }
@@ -38,8 +44,8 @@ const Packages = () => {
         }
         if (data?.isSuccess) {
           router.replace(data?.data?.paymentUrl);
-        }else{
-            message.error(data.message)
+        } else {
+          message.error(data.message);
         }
       });
     } catch (error: any) {
@@ -48,34 +54,66 @@ const Packages = () => {
   };
 
   return (
-    <section className="w-full max-w-5xl mx-auto py-10 mt-12">
-      <h2 className="text-2xl font-semibold text-center mb-8 text-gray-700">
-        پلن‌های اشتراک
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {pricingData.map((plan: any) => (
-          <Card
-            key={plan._id}
-            title={plan.title}
-            bordered
-            className="text-center rounded-xl shadow hover:shadow-lg transition duration-300"
-          >
-            <p className="text-xl font-bold text-gray-800 mb-4">
-              {plan.price === 0
-                ? "رایگان"
-                : `${(plan.price/10).toLocaleString()} تومان`}
+    <>
+      <div className="w-full mb-96">
+        <div className="container">
+          <div className="w-full flex flex-col items-center pt-[70px]">
+            <span className="flex text-[14px] font-normal">
+              <Image src={priceIcon} alt="" className="me-2" />
+              قیمت ما
+            </span>
+            <h3 className="mt-[10px] text-[32px] font-extrabold">
+              پلن‌های هوشیوا
+            </h3>
+            <p className="mt-5 text-[16px]">
+              از سند رایگان برای تست شروع کن، بعد با خرید پلن‌های بیشتر، دسترسی
+              کامل داشته باش.{" "}
             </p>
-            <Button
-              type="primary"
-              className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-              onClick={() => handlePayment(plan._id)}
-            >
-              انتخاب پلن
-            </Button>
-          </Card>
-        ))}
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-6 plan-box-container">
+            {pricingData.map((plan: any) => (
+              <Card key={plan._id} className="w-[315px]">
+                <figure className="w-[80px] h-[80px] flex justify-center items-center rounded-full bg-[#E9EEFB] m-auto">
+                  <Image src={planIcon} alt="" />
+                </figure>
+                <h6 className="text-center mt-4 text-[20px] font-extrabold">
+                  {plan.title}
+                </h6>
+                <p className="text-[32px] font-normal text-[#2556DA] mt-[13px] text-center">
+                  {plan.price === 0 ? (
+                    "رایگان"
+                  ) : (
+                    <>
+                      {(plan.price / 10).toLocaleString()}{" "}
+                      <span className="text-[16px] font-light text-[#040404]">
+                        تومان
+                      </span>
+                    </>
+                  )}
+                </p>
+                <div className="w-full mt-[30px] mb-[30px]">
+                {plan?.data?.map((element: any) => {
+                  return (
+                    <p className="text-right flex text-black text-[16px]">
+                      <Image src={starPackageIcon} alt=""  className="ml-2"/>
+                      {element}
+                    </p>
+                  );
+                })}
+                </div>
+                <Button
+                  type="primary"
+                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  onClick={() => handlePayment(plan._id)}
+                >
+                  انتخاب پلن
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
-    </section>
+    </>
   );
 };
 

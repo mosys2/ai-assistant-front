@@ -52,8 +52,8 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="navbar w-full navbar-desktop mt-[30px]">
-      <div className="menu w-5/6 xl:w-2/3 h-full m-auto flex flex-row justify-center items-center ps-[24px] pe-[24px]">
+    <nav className="navbar w-full navbar-desktop mt-[30px] z-10">
+      <div className="menu w-5/6 xl:w-2/3 h-full m-auto flex flex-row justify-center items-center ps-[24px] pe-[24px] bg-white">
         <Row className="w-full h-[75px] md:h-76px justify-between">
           <div className="flex">
             <Link href="/" className="flex ">

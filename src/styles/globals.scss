@@ -42,6 +42,7 @@ p {
   font-family: "YekanBakh", sans-serif;
   font-size: 16px;
   color: var(--color1);
+  font-weight: 400;
 }
 
 h1,
@@ -70,7 +71,7 @@ a {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease !important;
-  display: flex!important;
+  display: flex !important;
   direction: rtl;
   align-items: center;
   justify-content: center;
@@ -94,7 +95,7 @@ a {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease !important;
-  display: flex!important;
+  display: flex !important;
   direction: rtl;
   align-items: center;
   justify-content: center;
@@ -176,17 +177,16 @@ a {
       display: inline-flex;
       align-items: center;
       li {
-        .ant-anchor-link{
-          padding-inline:0px;
+        .ant-anchor-link {
+          padding-inline: 0px;
           padding-right: 4px;
-
         }
         display: flex;
         margin: 0 20px;
         a {
           color: var(--color1);
           font-size: 18px;
-          font-weight: 400!important;
+          font-weight: 400 !important;
           &:active,
           &:hover,
           &:target,
@@ -218,7 +218,7 @@ a {
       li {
         display: flex;
         align-items: center;
-                  margin-bottom: 20px;
+        margin-bottom: 20px;
 
         .ant-anchor-link {
           a {
@@ -228,6 +228,29 @@ a {
           }
         }
       }
+    }
+  }
+}
+
+.why-box {
+  border-radius: 15px;
+  background: var(--white, #fff);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.plan-box-container {
+  .ant-card-bordered {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 15px;
+    padding: 30px;
+    background: var(--white, #fff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .ant-card-body {
+      width: 100% !important;
     }
   }
 }
