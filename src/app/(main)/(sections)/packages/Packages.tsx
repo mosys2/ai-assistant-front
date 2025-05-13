@@ -91,10 +91,10 @@ const Packages = () => {
                     </>
                   )}
                 </p>
-                <div className="w-full mt-[30px] mb-[30px]">
+                <div className="w-full mt-[30px] mb-[30px] h-[170px]">
                 {plan?.data?.map((element: any) => {
                   return (
-                    <p className="text-right flex text-black text-[16px]">
+                    <p className="text-right flex text-black text-[16px] mb-1">
                       <Image src={starPackageIcon} alt=""  className="ml-2"/>
                       {element}
                     </p>
