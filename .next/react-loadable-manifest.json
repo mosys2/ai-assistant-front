@@ -1,20 +1,14 @@
 {
   "app/(main)/(blocks)/PageContext.tsx -> ./Footer": {
-    "id": 6659,
+    "id": "app/(main)/(blocks)/PageContext.tsx -> ./Footer",
     "files": [
-      "static/chunks/50-22e50663c52d67d9.js",
-      "static/chunks/850.ff6f6810ddd83e27.js",
-      "static/chunks/659.975fc200aac5c7dc.js"
+      "static/chunks/_app-pages-browser_src_app_main_blocks_Footer_tsx.js"
     ]
   },
   "app/(main)/(blocks)/PageContext.tsx -> ./Header": {
-    "id": 9105,
+    "id": "app/(main)/(blocks)/PageContext.tsx -> ./Header",
     "files": [
-      "static/chunks/605-29d0f55d2641008c.js",
-      "static/chunks/623-bd10bd31a0f3edb0.js",
-      "static/chunks/648-ca587ec021f448b0.js",
-      "static/chunks/32-48d24fc345e93db3.js",
-      "static/chunks/105.c74cca82cbb8c452.js"
+      "static/chunks/_app-pages-browser_src_app_main_blocks_Header_tsx.js"
     ]
   }
 }
