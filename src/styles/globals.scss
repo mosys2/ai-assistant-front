@@ -84,6 +84,30 @@ a {
   }
 }
 
+.btn1 {
+  background: transparent;
+  color: #2556da;
+  border: 1px solid #2556da;
+  border-radius: 60px;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease !important;
+  display: flex!important;
+  direction: rtl;
+  align-items: center;
+  justify-content: center;
+  &:active,
+  &:hover,
+  &:target,
+  &:focus-within,
+  &:focus {
+    background: #b8cbff !important;
+    color: #2556da !important;
+  }
+}
+
 .bgai {
   // background-image: url('../assets/images/bg.png');
   background-color: #3347fc;
