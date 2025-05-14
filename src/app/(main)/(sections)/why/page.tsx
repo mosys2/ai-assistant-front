@@ -10,7 +10,7 @@ import { Col, Row } from "antd";
 const Why = () => {
   return (
     <>
-      <div className="w-full bg-[#1A3D9B] h-[364px]">
+      <div className="w-full bg-[#1A3D9B] h-[364px]" id="why">
         <div className="container">
           <div className="w-full flex flex-col items-center text-white pt-[70px]">
             <span className="flex text-[14px] font-normal">

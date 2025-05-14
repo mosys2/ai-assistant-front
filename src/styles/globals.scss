@@ -162,7 +162,7 @@ a {
   opacity: 1;
   visibility: visible;
 }
-.navbar {
+.navbar { 
   .menu {
     border-radius: 100px;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
@@ -209,6 +209,27 @@ a {
   }
 }
 
+.footer-menu{
+  li{
+      position: relative;
+
+    a{
+        color: #fff!important;
+        
+    }
+    &::before{
+          content: "";
+          width:4px;
+          height: 4px;
+          border-radius: 50%;
+          position: absolute;
+          right: -10px;
+          bottom: 15px;
+          background-color: #fff;
+        }
+  }
+}
+
 .menu-anchor-mobile {
   .ant-anchor {
     &::before {
@@ -231,6 +252,17 @@ a {
     }
   }
 }
+
+ .ant-anchor .ant-anchor-ink.ant-anchor-ink-visible{
+    display: none!important;
+  }
+ .ant-anchor-wrapper .ant-anchor .ant-anchor-link-active>.ant-anchor-link-title{
+  text-decoration: none;
+  background-image: var(--color2);
+  -webkit-background-clip: text;
+  color: var(--color3);
+  transition: all 0.3s ease;
+  }
 
 .why-box {
   border-radius: 15px;
@@ -262,27 +294,30 @@ a {
   background-size: cover;
   background-position: bottom;
   background-blend-mode: color-burn;
-  .header-footer{
+  z-index: 1;
+  .header-footer {
     width: 112px;
     height: 25px;
     font-size: 14px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #142F78;
+    color: #142f78;
     background-color: white;
     border-radius: 30px;
-    &::after{
-      // content: url('../assets/images/line-footer.svg');
+    z-index: 10;
+    &::after {
+      content: "";
       position: absolute;
       left: 0;
-      z-index: 10;
-      color: #000;
+      top: 12; /* or adjust as needed */
+      width: 100%; /* or any specific width */
+      height: 1px; /* thickness of the line */
+      background-color:rgba(255, 255, 255, 0.10);
+      z-index: 5;
     }
   }
-
 }
 
-  // .w-[112px] h-[25px] flex items-center justify-center text-center text-[] bg-white rounded-[30px]
-
+// .w-[112px] h-[25px] flex items-center justify-center text-center text-[] bg-white rounded-[30px]

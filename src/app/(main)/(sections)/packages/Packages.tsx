@@ -55,7 +55,7 @@ const Packages = () => {
 
   return (
     <>
-      <div className="w-full mb-96">
+      <div className="w-full mb-96" id="pricing">
         <div className="container">
           <div className="w-full flex flex-col items-center pt-[70px]">
             <span className="flex text-[14px] font-normal">
