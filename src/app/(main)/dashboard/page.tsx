@@ -27,7 +27,7 @@ export default function Home() {
       <div className='w-1/2 text-lg'>به داشبورد خوش امدید</div>
       <div className='w-1/2 flex justify-end'>
       <button
-      onClick={() => signOut({ callbackUrl: "/auth" })}
+      onClick={() => signOut({ callbackUrl: "/" })}
       className=" px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-blue-700 transition"
       >
         خروج

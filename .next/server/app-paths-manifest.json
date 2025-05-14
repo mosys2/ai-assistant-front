@@ -1,3 +1,6 @@
 {
-  "/(main)/page": "app/(main)/page.js"
+  "/(main)/page": "app/(main)/page.js",
+  "/(main)/auth/page": "app/(main)/auth/page.js",
+  "/(main)/api/auth/[...nextauth]/route": "app/(main)/api/auth/[...nextauth]/route.js",
+  "/(main)/dashboard/page": "app/(main)/dashboard/page.js"
 }

@@ -62,6 +62,11 @@ a {
   font-family: "YekanBakh", sans-serif;
 }
 
+input{
+    font-family: "YekanBakh"!important;
+
+}
+
 .btn {
   background: linear-gradient(90deg, #1a3d9b 0%, #2556da 100%);
   color: #fff;
@@ -317,6 +322,15 @@ a {
       background-color:rgba(255, 255, 255, 0.10);
       z-index: 5;
     }
+  }
+}
+
+.verify-form{
+  .ant-form-item-label{
+    text-align: right!important;
+  }
+  .ant-form-item-row{
+    width: 100%;
   }
 }
 
