@@ -19,10 +19,10 @@ const Footer = () => {
   };
   const dispatch = useAppDispatch();
   return (
-    <footer className="home-footer pt-20 ps-24 pe-24 pb-4 text-white">
+    <footer className="home-footer p-5 lg:pt-20 lg:ps-24 lg:pe-24 lg:pb-4 text-white">
       <div className="container">
         <Row>
-          <Col span={13} className="pe-6">
+          <Col lg={13} xs={24}  className="pe-6">
             <div>
               <h5 className="text-[18px] font-semibold">هوشیوا</h5>
               <p className="text-white text-[15px] leading-[30px] text-justify mt-3">
@@ -36,7 +36,7 @@ const Footer = () => {
               </p>
             </div>
           </Col>
-          <Col span={11}>
+          <Col lg={11} xs={24}>
             <div className="header-footer">
               <span>راه های ارتباطی</span>
             </div>
@@ -106,7 +106,7 @@ const Footer = () => {
               </ul>
             </Anchor>
             <div className="header-footer !bg-transparent"></div>
-            <p className="text-white pt-4 text-[12px] font-light">
+            <p className="text-white pt-4 text-[12px] font-light text-center lg:text-right">
               تمامی حقوق و شرایط این وبسایت متعلق به{" "}
               <span className="font-semibold">هوشیوا</span> است.
             </p>

@@ -20,9 +20,9 @@ const FeatureCard = ({ icon, text }: any) => (
 const Home = () => {
   return (
     <div className="relative">
-      <div className="container h-[100vh] ">
+      <div className="container h-auto lg:h-[100vh] ">
         <Row>
-          <div className="w-full mt-11 mb-11 lg:mt-24 lg:mb-24 flex justify-center flex-col items-center">
+          <div className="w-full mt-20 mb-24 lg:mt-24 lg:mb-24 flex justify-center flex-col items-center">
             <h2 className="font-extrabold text-[32px]">هوشیوا،</h2>
             <p className="font-normal text-[20px] mt-2">
               یه دوست باهوش برای ساختن انواع سند و قرارداد

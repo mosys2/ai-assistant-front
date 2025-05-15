@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import logo from "@/assets/images/logo.svg";
  import close from "@/assets/images/close.svg";
 import Image from "next/image";
@@ -8,17 +8,36 @@ import smileIcon from "@/assets/images/smile.svg";
 import tickIcon from "@/assets/images/tick.svg";
 import docIcon from "@/assets/images/document.svg";
 import faqIcon from "@/assets/images/faq.svg";
-import { closeSideMenutoggle } from "@/redux/features/Commons.slice";
+import { closeSideMenutoggle, openSideMenuToggle } from "@/redux/features/Commons.slice";
 import Link from "next/link";
-import { Anchor, Button } from "antd";
+import { Anchor, Button, Spin } from "antd";
 import { useSession } from "next-auth/react";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { openLoginModalToggle } from "@/redux/features/Modals.slice";
+import { useRouter } from "next/navigation";
+import { LoadingOutlined } from "@ant-design/icons";
+
 const { Link: AnchorLink } = Anchor;
 
 const Sidebar = () => {
+  const router=useRouter()
   const { data: session } = useSession();
   const dispatch = useAppDispatch();
   const { sideMenuToggle } = useAppSelector((store) => store.commons);
+   const [loginLoading, setLoginLoading] = useState(true);
+  
+    useEffect(() => {
+      setLoginLoading(false); // simulate loading complete
+    }, []);
+
+    const handleLogin = useCallback(() => {
+      dispatch(closeSideMenutoggle())
+        if (!session) {
+          dispatch(openLoginModalToggle(true));
+        } else {
+          router.push("/dashboard");
+        }
+      }, [session, dispatch, router]);
   return (
     <>
       <div
@@ -58,12 +77,19 @@ const Sidebar = () => {
                 </li>
               </ul>
           </Anchor>
-         <Link href="#">
-                <Button className="btn w-full h-[45px] !text-[16px] hidden lg:block ">
-                  <Image src={loginIcon} alt="" />
-                  ورود / ثبت نام
-                </Button>
-              </Link>
+         <Spin
+              spinning={loginLoading || status === "loading"}
+              indicator={<LoadingOutlined spin />}
+              size="small"
+            >
+              <Button
+                onClick={handleLogin}
+                className="btn w-full h-[45px] !text-[16px] hidden lg:flex items-center gap-2"
+              >
+                <Image src={loginIcon} alt="login" />
+                ورود / ثبت نام
+              </Button>
+            </Spin>
         </div>
       </div>
     </>

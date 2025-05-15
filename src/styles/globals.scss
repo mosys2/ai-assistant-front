@@ -62,9 +62,8 @@ a {
   font-family: "YekanBakh", sans-serif;
 }
 
-input{
-    font-family: "YekanBakh"!important;
-
+input {
+  font-family: "YekanBakh" !important;
 }
 
 .btn {
@@ -167,7 +166,7 @@ input{
   opacity: 1;
   visibility: visible;
 }
-.navbar { 
+.navbar {
   .menu {
     border-radius: 100px;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
@@ -214,24 +213,23 @@ input{
   }
 }
 
-.footer-menu{
-  li{
-      position: relative;
+.footer-menu {
+  li {
+    position: relative;
 
-    a{
-        color: #fff!important;
-        
+    a {
+      color: #fff !important;
     }
-    &::before{
-          content: "";
-          width:4px;
-          height: 4px;
-          border-radius: 50%;
-          position: absolute;
-          right: -10px;
-          bottom: 15px;
-          background-color: #fff;
-        }
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      position: absolute;
+      right: -10px;
+      bottom: 15px;
+      background-color: #fff;
+    }
   }
 }
 
@@ -258,16 +256,19 @@ input{
   }
 }
 
- .ant-anchor .ant-anchor-ink.ant-anchor-ink-visible{
-    display: none!important;
-  }
- .ant-anchor-wrapper .ant-anchor .ant-anchor-link-active>.ant-anchor-link-title{
+.ant-anchor .ant-anchor-ink.ant-anchor-ink-visible {
+  display: none !important;
+}
+.ant-anchor-wrapper
+  .ant-anchor
+  .ant-anchor-link-active
+  > .ant-anchor-link-title {
   text-decoration: none;
   background-image: var(--color2);
   -webkit-background-clip: text;
   color: var(--color3);
   transition: all 0.3s ease;
-  }
+}
 
 .why-box {
   border-radius: 15px;
@@ -319,19 +320,39 @@ input{
       top: 12; /* or adjust as needed */
       width: 100%; /* or any specific width */
       height: 1px; /* thickness of the line */
-      background-color:rgba(255, 255, 255, 0.10);
+      background-color: rgba(255, 255, 255, 0.1);
       z-index: 5;
     }
   }
 }
 
-.verify-form{
-  .ant-form-item-label{
-    text-align: right!important;
+.verify-form {
+  .ant-form-item-label {
+    text-align: right !important;
   }
-  .ant-form-item-row{
+  .ant-form-item-row {
     width: 100%;
   }
 }
 
 // .w-[112px] h-[25px] flex items-center justify-center text-center text-[] bg-white rounded-[30px]
+.collapse-home {
+  background-color: transparent;
+  .ant-collapse-item {
+    min-height: 65px;
+    background-color: white;
+    border-radius: 15px !important;
+    background: var(--White, #fff);
+    /* effect2 */
+    box-shadow: 0px 0px 15px 0px rgba(6, 56, 190, 0.15);
+    .ant-collapse-header{
+          height: 65px;
+          padding: 20px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .ant-form-item-row {
+    flex-direction: row!important;
+}
+}

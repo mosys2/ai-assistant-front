@@ -6,6 +6,8 @@ import logo from "@/assets/images/logo.svg";
 import Home from "../(sections)/home/page";
 import Why from "../(sections)/why/page";
 import Packages from "../(sections)/packages/Packages";
+import Templates from "../(sections)/templates/page";
+import FAQ from "../(sections)/faq/page";
 
 const Loading = () => (
   <div
@@ -79,6 +81,8 @@ const PageContext = () => {
             <Home />
             <Why />
             <Packages />
+            <Templates />
+            <FAQ />
           </main>
           <Footer />
         </>

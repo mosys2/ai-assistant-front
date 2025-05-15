@@ -97,20 +97,23 @@ const Header = () => {
           </Col>
 
           <Col className="flex items-center">
-            <Spin
+          <div className="hidden lg:flex">
+  <Spin
               spinning={loginLoading || status === "loading"}
               indicator={<LoadingOutlined spin />}
               size="small"
             >
               <Button
                 onClick={handleLogin}
-                className="btn w-[165px] h-[45px] !text-[16px] hidden lg:flex items-center gap-2"
+                className="btn w-[165px] h-[45px] !text-[16px]  items-center gap-2"
               >
                 <Image src={loginIcon} alt="login" />
                 ورود / ثبت نام
               </Button>
             </Spin>
 
+          </div>
+          
             <span
               className="w-[32px] h-[32px] block lg:hidden rounded-[7px] humber-menu-btn"
               onClick={() => dispatch(openSideMenuToggle())}
