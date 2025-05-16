@@ -21,29 +21,35 @@ const siderStyle: React.CSSProperties = {
   insetInlineStart: 0,
   scrollbarWidth: "none",
 };
+
 const InLayout: FunctionComponent<InLayoutProps> = ({ children }) => {
   const dispatch = useAppDispatch();
-  return (
-    <>
-      <Layout
-        className="p-5"
-        style={{ background: "var(--color-bg-gradient2)" }}
-      >
-        <Layout className="bg-transparent mt-6">
-          <Sider
-            className="hidden lg:block"
-            width={242}
-            style={siderStyle}
-          >
-            <SidbarDashboard />
-          </Sider>
 
-          <Layout className="bg-transparent ml-0 md:ml-5">
-            <Content className="!bg-transparent">{children}</Content>
-          </Layout>
+  return (
+    <Layout className="" style={{ background: "#131927" }}>
+      <Layout className="bg-[#131927] ">
+        {/* Sider (Sidebar) */}
+        <Sider
+          className="hidden lg:block dashboard-sidebar p-5 bg-[#0D1321] me-5"
+          width={322}
+          style={siderStyle}
+        >
+          <SidbarDashboard />
+        </Sider>
+
+        {/* Main Layout (Header + Content) */}
+        <Layout className=" ml-0 md:ml-5 bg-transparent">
+          {/* Header */}
+          <Header className="bg-[#131927] text-white">
+            {/* You can customize header content here */}
+            <div className="text-xl font-semibold">داشبورد</div>
+          </Header>
+
+          {/* Content */}
+          <Content className="!bg-[#1A2235] text-white rounded-[20px] p-4">{children}</Content>
         </Layout>
       </Layout>
-    </>
+    </Layout>
   );
 };
 
