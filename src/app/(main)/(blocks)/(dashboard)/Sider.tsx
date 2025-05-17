@@ -18,6 +18,7 @@ import officIcon from "@/assets/images/office.svg";
 import customIcon from "@/assets/images/custom.svg";
 import profileIcon from "@/assets/images/profile.png";
 import arrowDownIcon from "@/assets/images/arrow-down.svg";
+import { getMenuKeyFromPath, routeToMenuKeyMap } from "@/utils/menuKeyMapper";
 
 
 const { Option } = Select;
@@ -38,34 +39,127 @@ const SidbarDashboard = () => {
   const [theme, setTheme] = useState<MenuTheme>("light");
   const [loading, setLoading] = useState(true);
   // Fetch user websites using your custom hook
+  
+  useEffect(() => {
+  const key = getMenuKeyFromPath(window.location.pathname);
+  dispatch(setCurrentMenu(routeToMenuKeyMap[key]));
+}, [dispatch]);
+
 
   const items: MenuItem[] = [
-    {
-      key: "1",
-      label: <Link href="/dashboard">داشبورد</Link>,
-      icon: <Image src={homeIcon} alt="" />,
-    },
-    {
-      key: "2",
-      label: <Link href="/dashboard">قراردادها</Link>,
-      icon: <Image src={contractIcon} alt="" />,
-    },
-    {
-      key: "3",
-      label: <Link href="/dashboard">اسناد حقوقی و قانونی</Link>,
-      icon: <Image src={documentIcon} alt="" />,
-    },
-    {
-      key: "4",
-      label: <Link href="/dashboard">نامه‌های رسمی و اداری</Link>,
-      icon: <Image src={officIcon} alt="" />,
-    },
-    {
-      key: "5",
-      label: <Link href="/dashboard">سند سفارشی</Link>,
-      icon: <Image src={customIcon} alt="" />,
-    },
-  ];
+  {
+    key: "1",
+    label: <Link href="/dashboard">داشبورد</Link>,
+    icon: <Image src={homeIcon} alt="" />,
+  },
+  {
+    key: "2",
+    label: "قراردادها",
+    icon: <Image src={documentIcon} alt="" />,
+    children: [
+      {
+        key: "2-2",
+        label: <Link href="/dashboard">قرارداد خرید و فروش خانه</Link>,
+      },
+      {
+        key: "2-3",
+        label: <Link href="/dashboard">قرارداد استخدام و همکاری</Link>,
+      },
+      {
+        key: "2-4",
+        label: <Link href="/dashboard">قرارداد مشاوره</Link>,
+      },
+      {
+        key: "2-5",
+        label: <Link href="/dashboard">قرارداد پیمانکاری</Link>,
+      },
+      {
+        key: "2-6",
+        label: <Link href="/dashboard">قرارداد مشارکت در کسب‌وکار</Link>,
+      },
+      {
+        key: "2-7",
+        label: <Link href="/dashboard">قرارداد محرمانگی (NDA)</Link>,
+      },
+    ],
+  },
+  {
+    key: "3",
+    label: "اسناد حقوقی و قانونی",
+    icon: <Image src={documentIcon} alt="" />,
+    children: [
+      {
+        key: "3-1",
+        label: <Link href="/dashboard/">لایحه دفاعیه</Link>,
+      },
+      {
+        key: "3-2",
+        label: <Link href="/dashboard">شکایت‌نامه</Link>,
+      },
+      {
+        key: "3-3",
+        label: <Link href="/dashboard">اظهارنامه رسمی</Link>,
+      },
+      {
+        key: "3-4",
+        label: <Link href="/dashboard">تعهدنامه محضری</Link>,
+      },
+      {
+        key: "3-5",
+        label: <Link href="/dashboard">درخواست اعسار</Link>,
+      },
+      {
+        key: "3-6",
+        label: <Link href="/dashboard">نامه به دادگاه</Link>,
+      },
+      {
+        key: "3-7",
+        label: <Link href="/dashboard">نامه استشهادیه</Link>,
+      },
+    ],
+  },
+  {
+    key: "4",
+    label: "نامه‌های رسمی و اداری",
+    icon: <Image src={officIcon} alt="" />,
+    children: [
+      {
+        key: "4-1",
+        label: <Link href="/dashboard">درخواست مرخصی</Link>,
+      },
+      {
+        key: "4-2",
+        label: <Link href="/dashboard">استعفانامه</Link>,
+      },
+      {
+        key: "4-3",
+        label: <Link href="/dashboard">معرفی‌نامه</Link>,
+      },
+      {
+        key: "4-4",
+        label: <Link href="/dashboard">دعوت‌نامه رسمی</Link>,
+      },
+      {
+        key: "4-5",
+        label: <Link href="/dashboard">نامه اعلام خسارت</Link>,
+      },
+      {
+        key: "4-6",
+        label: <Link href="/dashboard">درخواست گواهی اشتغال</Link>,
+      },
+      {
+        key: "4-7",
+        label: <Link href="/dashboard">گزارش رسمی</Link>,
+      },
+    ],
+  },
+  {
+    key: "5",
+    label: <Link href="/dashboard">سند سفارشی</Link>,
+    icon: <Image src={customIcon} alt="" />,
+  },
+];
+
 
   const changeTheme = (value: boolean) => {
     setTheme(value ? "dark" : "light");
@@ -96,14 +190,14 @@ const SidbarDashboard = () => {
         </span>
       </div>
       <Menu
-        className=" h-full !overflow-hidden  font-semibold text-[20px] bg-[#0D1321] mt-10"
-        onClick={onClick}
-        style={{ width: "100%" }}
-        defaultSelectedKeys={["1"]}
-        selectedKeys={[currentMenu]}
-        mode="inline"
-        items={items}
-      />
+  className="dashboard-sidebar h-full !overflow-hidden font-semibold text-[20px] bg-[#0D1321] mt-10"
+  onClick={onClick}
+  style={{ width: "100%" }}
+  selectedKeys={[currentMenu]}  // ✅ Only 1 item active
+  mode="inline"
+  items={items}
+/>
+
     </>
   );
 };

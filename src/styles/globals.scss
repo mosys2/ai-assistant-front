@@ -371,4 +371,37 @@ input {
     background-color: #1e4dcf !important;
     border-radius: 12px !important;
   }
+  .ant-menu-submenu {
+    border-radius: 12px !important;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    span {
+      color: #fff !important;
+    }
+    
+    ul{
+.ant-menu-title-content{
+          font-weight: 300;
+          font-size: 14px;
+
+    }
+    li{
+      margin: 0;
+      padding-right: 32px;
+      &::before{
+        content: "-";
+        color: #fff;
+      }
+    }
+    }
+    
+    .ant-menu-submenu-arrow {
+      color: #fff;
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+  
 }
